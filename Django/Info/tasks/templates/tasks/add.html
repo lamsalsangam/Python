@@ -1,0 +1,14 @@
+{% extends "tasks/layout.html" %} {% block body %}
+<h1>Add the new tasks</h1>
+<!-- when submitted it will send it back to the add url -->
+<form action="{% url 'tasks:add'%}" method="post">
+  <!-- csrf_token is for the unique token to be build in every new page for the submission of the form -->
+  <!-- and django has built in middleware for it so we can use it -->
+  {% csrf_token %}
+  <!-- <input type="text" name="task" id="" /> -->
+  <!--django created form -->
+  {{form}}
+  <input type="submit" value="Submit" />
+</form>
+<a href="{% url 'tasks:index' %}">View Tasks</a>
+{% endblock %}

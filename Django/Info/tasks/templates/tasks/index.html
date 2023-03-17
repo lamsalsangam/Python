@@ -1,0 +1,14 @@
+{% extends "tasks/layout.html" %} {% block body %}
+<h1>My first Todo app in the django</h1>
+
+<ul>
+  {% for task in tasks %}
+  <li>{{task}}</li>
+  <!-- if the tasks is empty -->
+  {% empty %}
+  <li>No tasks</li>
+  {%endfor%}
+</ul>
+<!-- Django will find the url which "name" attribute is specified as "add" in urls.py -->
+<a href="{% url 'tasks:add' %}"> Add a New Task </a>
+{% endblock %}
